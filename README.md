@@ -129,7 +129,3 @@ Ensure you have the following installed on your local machine:
 - Repository: [Mehar-Graphics---Service-Web-Application](https://github.com/jeetchalthanwaladev/Mehar-Graphics---Service-Web-Application)
 
 ---
-
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
