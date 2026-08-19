@@ -1,0 +1,293 @@
+/* Section wrapper */
+.printing-section {
+  padding: 50px 0;
+  background: #f0fdfa;
+  /* Light Mint per user image */
+}
+
+/* Title */
+.printing-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  color: #033b3d;
+  font-weight: 700;
+}
+
+/* Row container
+   - nowrap prevents unwanted wrapping while hover changes sizes
+   - align-items: stretch keeps cards same baseline */
+.printing-row {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: nowrap;
+  /* keep side-by-side */
+  padding: 20px 40px;
+  transition: 0.34s ease;
+  align-items: flex-start;
+}
+
+/* MAIN CARD
+   Use flex shorthand: flex-grow flex-shrink flex-basis
+   'flex: 0 0 520px' => don't grow, don't shrink below basis, start at 520px */
+.expertise-card {
+  flex: 0 0 520px;
+  /* preferred width as flex-basis */
+  background: #022e37;
+  border-radius: 16px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  color: white;
+  box-sizing: border-box;
+  min-height: 260px;
+  position: relative;
+  transition: flex-basis 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
+  overflow: visible;
+  /* keep overflowing content visible if needed */
+  min-width: 300px;
+  /* prevent collapsing to tiny sizes */
+}
+
+/* EXPANDED CARD
+   Increase the flex-basis (width) when hovered */
+.expertise-card.expanded {
+  flex: 0 0 780px;
+  /* expanded width */
+  transform: translateY(-4px);
+  /* subtle lift */
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.12);
+  z-index: 5;
+  /* keep it on top while expanded */
+}
+
+/* SHRUNK CARD
+   Reduce flex-basis but DO NOT allow it to go below min-width */
+.expertise-card.shrunk {
+  flex: 0 0 360px;
+  /* shrunk width but not tiny */
+  opacity: 0.85;
+  transform: translateY(0);
+  z-index: 1;
+}
+
+/* IMAGE BOX
+   Make image use 100% of available card width but capped to a sensible width */
+.expertise-img-box {
+  width: 100%;
+  max-width: 500px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: -5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.35s ease;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+
+.expertise-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: all 0.35s ease;
+}
+
+/* placeholder if no image */
+.empty-img {
+  width: 80%;
+  height: 80%;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+}
+
+/* BOTTOM CONTENT (Button + Title) */
+.expertise-bottom {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  gap: 12px;
+}
+
+/* BUTTON LEFT */
+.expertise-btn {
+  background: #ffffff;
+  color: #022e37;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(2, 7, 7, 0.12);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+/* keep the button interactive even when card shrunk */
+.expertise-card.shrunk .expertise-btn {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.expertise-btn:hover {
+  transform: translateX(3px);
+}
+
+.expertise-btn .arrow {
+  font-weight: 800;
+  transform: translateX(0);
+  transition: transform 160ms ease;
+}
+
+/* TITLE RIGHT */
+.expertise-title {
+  font-size: 14px;
+  font-weight: 800;
+  margin: 0;
+  text-align: right;
+  line-height: 1.1;
+  max-width: 260px;
+  color: #eaf6f6;
+  word-break: break-word;
+  /* avoid overflow when space is limited */
+}
+
+/* Keep items visible and usable when shrunk:
+   ensure images, title and button don't get clipped to zero height */
+.expertise-card .expertise-img-box {
+  max-width: 720px;
+}
+
+.expertise-card .expertise-bottom {
+  min-height: 56px;
+}
+
+/* IMAGE becomes smaller on shrink */
+.expertise-card.shrunk .expertise-img-box {
+  max-width: 300px;
+  /* smaller width */
+}
+
+.expertise-card.shrunk .expertise-img-box img {
+  transform: scale(0.92);
+  /* slight zoom-out */
+  opacity: 0.8;
+}
+
+/* RESPONSIVE
+   On smaller screens allow wrapping and stack the cards vertically */
+@media (max-width: 1100px) {
+  .printing-row {
+    flex-wrap: wrap;
+    gap: 18px;
+    justify-content: center;
+  }
+
+  /* reduce base widths for smaller screens */
+  .expertise-card {
+    flex: 0 0 420px;
+    min-width: 300px;
+  }
+
+  .expertise-card.expanded {
+    flex: 0 0 660px;
+  }
+
+  .expertise-card.shrunk {
+    flex: 0 0 300px;
+  }
+
+  .expertise-img-box {
+    max-width: 420px;
+    height: 170px;
+  }
+}
+
+@media (max-width: 680px) {
+  .printing-row {
+    gap: 14px;
+    padding: 12px;
+  }
+
+  .expertise-card {
+    width: 100%;
+    flex: 0 0 100%;
+    min-width: 0;
+  }
+
+  .expertise-card.expanded,
+  .expertise-card.shrunk {
+    flex: 0 0 100%;
+    transform: none;
+    box-shadow: none;
+    z-index: 1;
+  }
+
+  .expertise-img-box {
+    height: 150px;
+  }
+
+  .expertise-title {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .expertise-bottom {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+  }
+}
+
+/* Ensure the media (img or video) behaves the same */
+.card-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+/* allow the image/video container to animate */
+.expertise-img-box {
+  transition: all 0.35s ease;
+}
+
+/* when expanded - image/video grows */
+.expertise-card.expanded .expertise-img-box {
+  height: 260px;
+  /* larger on expand */
+  max-width: 100%;
+}
+
+.expertise-card.expanded .card-media {
+  transform: scale(1.06);
+  opacity: 1;
+}
+
+/* when shrunk - image/video slightly reduces */
+.expertise-card.shrunk .expertise-img-box {
+  height: 150px;
+  max-width: 100%;
+}
+
+.expertise-card.shrunk .card-media {
+  transform: scale(0.94);
+  opacity: 0.9;
+}
+
+/* make sure video does not show controls */
+.expertise-img-box video {
+  outline: none;
+  border: 0;
+}

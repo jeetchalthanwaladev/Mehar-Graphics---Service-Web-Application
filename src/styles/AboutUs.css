@@ -1,0 +1,405 @@
+/* About Us Page Styles */
+
+/* Page Wrapper */
+.about-page-wrapper {
+    width: 100%;
+    overflow-x: hidden;
+    background-color: #f9f9f9;
+}
+
+/* 1. Hero Section */
+.about-hero {
+    background: url('/mein_banner.png') center/cover no-repeat;
+    min-height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.about-hero h1 {
+    color: #043F4A;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.about-hero h3 {
+    color: #C5A465;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.about-hero p {
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+/* 2. Our Story Section */
+.story-section {
+    padding: 4rem 1rem;
+    text-align: center;
+    background: #fff;
+}
+
+.story-badge {
+    background: #D4C5A9;
+    color: #fff;
+    padding: 5px 15px;
+    display: inline-block;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.story-title {
+    color: #043F4A;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 3rem;
+}
+
+.about-story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 0 !important;
+}
+
+.story-block {
+    height: 350px;
+    width: 100%;
+    position: relative;
+}
+
+.story-block.dark-teal {
+    background-color: #043F4A;
+}
+
+.story-block img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.story-block-content {
+    height: 100%;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+    text-align: left;
+}
+
+.story-block-content h3 {
+    color: #C5A465;
+    font-size: 1.5rem;
+}
+
+.story-block-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* 3. Core Values Section */
+.values-section {
+    background: #fff;
+    padding: 4rem 1rem;
+    text-align: center;
+}
+
+.section-title {
+    color: #043F4A;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.section-sub {
+    color: #C5A465;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* 2x2 Grid for Core Values */
+.about-values-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* Enforce 2 columns */
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.value-card {
+    background: #043F4A !important;
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-align: left;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(197, 164, 101, 0.2);
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+}
+
+.value-icon {
+    width: 70px;
+    height: 70px;
+    background: #fff;
+    border-radius: 50%;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+    position: relative;
+    border: 3px solid #C5A465;
+    /* Gold Ring */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Icons via CSS (Optional placeholders) */
+.value-icon::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    border: 1px solid #C5A465;
+    border-radius: 50%;
+    opacity: 0.6;
+}
+
+.value-content {
+    flex: 1;
+}
+
+.value-content h4 {
+    color: #C5A465;
+    margin: 0 0 0.5rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.value-content p {
+    font-size: 1rem;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+/* 4. Team Section */
+.team-section {
+    background: #043F4A;
+    padding: 6rem 1rem;
+    text-align: center;
+}
+
+.team-section h2 {
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.team-section .section-sub {
+    color: #C5A465;
+    margin-bottom: 5rem;
+}
+
+.about-team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.about-team-card {
+    background: #fff;
+    border-radius: 20px;
+    /* Adjusted Top Padding for spacing between avatar and name */
+    padding: 8rem 1.5rem 2rem;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.about-team-avatar {
+    background: #DDB86E;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    position: absolute;
+    top: -65px;
+    /* Half of height to sit on edge */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.about-team-avatar::after {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: -12px;
+    right: -12px;
+    bottom: -12px;
+    border: 1px solid #C5A465;
+    border-radius: 50%;
+}
+
+.about-team-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+.about-team-name {
+    color: #043F4A;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 0.25rem;
+    margin-top: 1rem;
+    /* Extra margin if needed */
+}
+
+.about-team-role {
+    color: #C5A465;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.about-team-exp {
+    color: #C5A465;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* 5. Mission & Vision */
+.mv-section {
+    display: flex;
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 1rem;
+}
+
+.mv-block {
+    flex: 1;
+    padding: 3rem;
+    min-height: 250px;
+}
+
+.mv-block.mission {
+    background: #043F4A;
+    color: #fff;
+    border-radius: 12px 0 0 12px;
+}
+
+.mv-block.vision {
+    background: #fff;
+    color: #043F4A;
+    border: 1px solid #e2e8f0;
+    border-radius: 0 12px 12px 0;
+}
+
+.mv-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+/* Responsive Styles */
+/* Responsive Styles */
+@media (max-width: 900px) {
+    .about-story-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .story-block {
+        height: auto;
+        min-height: 250px;
+    }
+
+    .story-block-content {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .about-values-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+
+    .about-team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-hero {
+        padding: 4rem 1rem 2rem;
+    }
+
+    .about-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .about-hero h3 {
+        font-size: 1.2rem;
+    }
+
+    .about-hero p {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    .about-team-grid {
+        grid-template-columns: 1fr;
+        gap: 5rem;
+        margin-top: 3rem;
+    }
+
+    .mv-section {
+        flex-direction: column;
+        margin: 2rem auto;
+    }
+
+    .mv-block.mission {
+        border-radius: 12px 12px 0 0;
+    }
+
+    .mv-block.vision {
+        border-radius: 0 0 12px 12px;
+    }
+
+    .story-title,
+    .section-title {
+        font-size: 2rem;
+    }
+}

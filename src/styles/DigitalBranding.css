@@ -1,0 +1,354 @@
+/* DigitalBranding.css - Refined to match User Design */
+
+.digital-branding-page-wrapper {
+  background-color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  padding-bottom: 2rem;
+}
+
+/* 1. Hero / Header */
+.db-hero-section {
+  background: url('/mein_banner.png') center/cover no-repeat;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.db-hero-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #043F4A;
+  /* Dark Teal */
+  margin: 0;
+}
+
+/* 2. Top Nav Cards */
+.db-nav-cards-row {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto 4rem;
+  padding: 0 1rem;
+}
+
+.db-nav-card {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: 220px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.db-nav-card:hover {
+  transform: translateY(-5px);
+}
+
+.db-nav-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.db-nav-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(4, 63, 74, 0.9);
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.db-nav-overlay h2 {
+  color: #fff;
+  font-size: 1.2rem;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* 3. Services Rows */
+.db-services-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.db-service-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.db-service-header {
+  text-align: center;
+}
+
+.db-service-header h3 {
+  font-size: 1.8rem;
+  color: #043F4A;
+  margin: 0 0 0.5rem;
+  font-weight: 800;
+}
+
+.db-service-header p {
+  color: #d97706;
+  /* Gold/Orange accent */
+  font-weight: 600;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.db-service-row {
+  display: flex;
+  gap: 0;
+  height: 380px;
+  /* Specific height for the split look */
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* Reverse layout for alternating rows */
+.db-service-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.db-feature-box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-box {
+  background-color: #043F4A;
+  color: #fff;
+  padding: 3rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Rounding logic similar to image:
+   - Row 1: Left Text (rounded left), Right Image (rounded right) -> usually container clips this.
+   - Wait, image shows specific partial rounding sometimes. 
+   - Let's stick to the container's overflow:hidden for simple rounded corners.
+   - BUT, specific design cue: One corner might be "cut".
+   - For now, full block rounded looks best.
+*/
+
+.image-box {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100%;
+}
+
+/* 4. Our Work Section */
+.db-section-dark {
+  background-color: #043F4A;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.db-section-title-white {
+  color: #fff;
+  font-size: 1.8rem;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.db-grid-3 {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto 3rem;
+  flex-wrap: wrap;
+}
+
+.db-empty-card-white {
+  background: #fff;
+  width: 280px;
+  height: 200px;
+  border-radius: 12px;
+}
+
+.db-more-btn {
+  background: #fff;
+  color: #043F4A;
+  border: none;
+  padding: 10px 40px;
+  font-weight: 800;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+/* 5. Sectors Section */
+.db-section-light {
+  background-color: #f0fdfa;
+  /* Light mint */
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.db-section-title-dark {
+  color: #043F4A;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+}
+
+.db-section-sub {
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.db-grid-5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.db-empty-card-outline {
+  height: 100px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* 6. Clients Section */
+.db-section-darker {
+  background-color: #043F4A;
+  /* Same dark teal to match footer if needed */
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.db-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.db-empty-card-white.tall {
+  height: 140px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .db-nav-cards-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .db-service-row {
+    flex-direction: column !important;
+    /* Force stack on mobile */
+    height: auto;
+  }
+
+  .db-feature-box {
+    min-height: 450px;
+    /* Ensure content has height */
+  }
+
+  .text-box {
+    padding: 2rem;
+  }
+
+  .db-grid-3,
+  .db-grid-5,
+  .db-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 cols for grids */
+  }
+
+  .db-grid-5 {
+    display: grid;
+    /* override flex if needed, but it was grid already */
+  }
+}
+
+@media (max-width: 480px) {
+
+  .db-grid-3,
+  .db-grid-5,
+  .db-grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* General Section */
+.section {
+  padding: 4rem 1rem;
+}
+
+.printing-title {
+  color: #043F4A;
+  font-size: 2rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+/* Swiper Clients Styling - Matching Services/Printing Page */
+.clients-swiper {
+  width: 100%;
+  padding: 1rem 0 3rem;
+}
+
+.db-client-slide {
+  background-color: #022e37 !important;
+  border-radius: 16px;
+  padding: 20px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: none !important;
+  transition: transform 0.3s ease;
+}
+
+.db-client-slide:hover {
+  transform: translateY(-5px);
+}
+
+.db-client-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  /* White logos */
+  transition: transform 0.3s ease;
+}
+
+.db-client-slide:hover .db-client-img {
+  transform: scale(1.05);
+}

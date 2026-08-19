@@ -1,0 +1,406 @@
+/* Services Page Styles */
+.services-page-wrapper {
+    font-family: 'Inter', sans-serif;
+    color: #333;
+}
+
+/* Hero Section with Title */
+.services-hero-section {
+    background: url('/mein_banner.png') center/cover no-repeat;
+    min-height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 1rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.services-hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #043F4A;
+    margin-bottom: 0.5rem;
+    letter-spacing: -1px;
+    position: relative;
+    display: inline-block;
+}
+
+
+.services-hero-desc {
+    max-width: 750px;
+    margin: 1.5rem auto 0;
+    padding-bottom: 4rem;
+    /* Removed bottom margin */
+    font-size: 1.15rem;
+    color: #475569;
+    line-height: 1.7;
+    font-weight: 500;
+}
+
+/* Service Category Cards (Hero Cards) */
+.service-categories-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+    max-width: 1200px;
+    margin: -30px auto 0;
+    /* Reduced overlap to give space to text */
+    padding: 0 1rem 4rem;
+    position: relative;
+    z-index: 10;
+}
+
+.service-cat-card {
+    position: relative;
+    height: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.service-cat-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-cat-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.service-cat-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(4, 63, 74, 0.9);
+    padding: 1rem;
+    text-align: center;
+}
+
+.service-cat-overlay h2 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Dark Sections (Printing Work, Digital Work, Clients) */
+.dark-section {
+    background: #043F4A;
+    /* Midnight Green */
+    padding: 4rem 1rem;
+    text-align: center;
+}
+
+.section-heading-white {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+    letter-spacing: 1px;
+}
+
+/* Carousel Styles */
+.work-carousel-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 0 3rem;
+}
+
+.printing-swiper {
+    width: 100%;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
+
+.printing-swiper .swiper-wrapper {
+    transition-timing-function: linear !important;
+}
+
+.printing-swiper .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px !important;
+    height: 400px !important;
+    /* Adjust as needed */
+    user-select: none;
+    filter: blur(2px) contrast(0.8);
+    transition: all 0.3s ease;
+    border-radius: 20px;
+}
+
+.printing-swiper .swiper-slide-active {
+    filter: blur(0) contrast(1);
+    z-index: 10;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    border: 3px solid #C5A465;
+    /* Gold Border for active */
+}
+
+.work-slide-item {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #000;
+}
+
+.work-slide-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Light Sections (Clients) */
+.light-section {
+    background: #ffffff;
+    padding: 5rem 1rem;
+    text-align: center;
+}
+
+.section-heading-dark {
+    color: #043F4A;
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+    letter-spacing: 1px;
+}
+
+/* Client Grid */
+.client-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.client-box {
+    background: #043F4A;
+    /* Dark Teal Box */
+    height: 140px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.client-box:hover {
+    transform: translateY(-5px);
+}
+
+.client-logo {
+    max-width: 70%;
+    max-height: 70%;
+    opacity: 0.9;
+    filter: brightness(0) invert(1);
+    /* White logos */
+}
+
+/* More Button */
+.more-btn {
+    display: inline-block;
+    background: #fff;
+    color: #043F4A;
+    font-weight: 800;
+    padding: 0.8rem 3rem;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 1rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+}
+
+.more-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Sectors Section */
+.sectors-section {
+    padding: 5rem 1rem;
+    background: #f0fdfa;
+    /* Light mint/teal tint */
+    text-align: center;
+}
+
+.sectors-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 2rem auto 0;
+}
+
+.sector-card {
+    background: #fff;
+    padding: 2rem 1rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+}
+
+.sector-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-color: #043F4A;
+}
+
+.sector-icon {
+    color: #043F4A;
+    margin-bottom: 1rem;
+}
+
+.sector-title {
+    font-weight: 700;
+    color: #1e293b;
+    font-size: 1.1rem;
+    margin: 0 0 0.5rem;
+}
+
+.sector-desc {
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .service-categories-row {
+        gap: 1.5rem;
+    }
+
+    .client-grid {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .services-hero-title {
+        font-size: 2.5rem;
+    }
+
+    .service-categories-row {
+        grid-template-columns: 1fr;
+        margin-top: -50px;
+    }
+
+    .work-grid.featured-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .work-item.large {
+        grid-column: auto;
+    }
+
+    .client-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sectors-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .services-hero-section {
+        height: 350px;
+        padding: 0 1rem;
+    }
+
+    .services-hero-title {
+        font-size: 2rem;
+    }
+
+    .services-hero-desc {
+        font-size: 1rem;
+        padding-bottom: 2rem;
+    }
+
+    .service-categories-row {
+        margin: -40px auto 0;
+        gap: 1.5rem;
+        padding-bottom: 3rem;
+    }
+
+    .service-cat-card {
+        height: 250px;
+    }
+
+    .service-cat-overlay h2 {
+        font-size: 1.2rem;
+    }
+
+    /* Carousel Mobile Adjustments */
+    .swiper-slide {
+        width: 260px !important;
+        height: 350px !important;
+    }
+
+    .client-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .client-box {
+        height: 100px;
+    }
+
+    .sectors-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sector-card {
+        padding: 1.5rem;
+    }
+
+
+}
+
+/* Clients Swiper Styles for Services Page */
+/* Clients Swiper Styles for Services Page */
+.clients-swiper .db-client-slide {
+    background-color: transparent !important;
+    padding: 20px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none !important;
+    box-shadow: none;
+    transition: transform 0.3s ease;
+}
+
+.clients-swiper .db-client-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: none !important;
+    /* Force remove any white/invert filters */
+    mix-blend-mode: multiply;
+    /* Helps white backgrounds of JPGs blend if container is not pure white, but here container is white so it's fine. */
+    transition: transform 0.3s ease;
+}
+
+.clients-swiper .db-client-slide:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.clients-swiper .db-client-slide:hover .db-client-img {
+    transform: scale(1.05);
+}

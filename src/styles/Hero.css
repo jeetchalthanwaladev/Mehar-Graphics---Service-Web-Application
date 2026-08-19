@@ -1,0 +1,356 @@
+/* src/style/hero.css
+   Animated hero section for Mehar Graphics
+   Uses site tokens: --midnight, --accent, --white, etc.
+*/
+
+:root {
+  --accent: #00bfa6;
+  --content-max: 1200px;
+  --gutter: 20px;
+  --muted: #6b7280;
+  --bg: #ffffff;
+  --card-shadow: 0 10px 30px rgba(3, 18, 25, 0.08);
+}
+
+/* HERO SECTION LAYOUT */
+.hero-section {
+  width: 100%;
+  background: var(--bg);
+  padding: 56px 0;
+  overflow: visible;
+}
+
+.hero-inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 calc(var(--gutter) + 8px);
+  display: grid;
+  grid-template-columns: 1fr 520px;
+  gap: 36px;
+  align-items: center;
+}
+
+/* Left column: text */
+.hero-left {
+  padding-right: 12px;
+}
+
+/* Eyebrow small tag */
+.eyebrow {
+  display: inline-block;
+  font-weight: 700;
+  color: var(--muted);
+  margin-bottom: 12px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 420ms ease, transform 420ms cubic-bezier(.2, .9, .2, 1);
+}
+
+/* Main title */
+.hero-title {
+  font-size: 44px;
+  line-height: 1.03;
+  margin: 0 0 18px 0;
+  color: #0f172a;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 520ms ease, transform 520ms cubic-bezier(.2, .9, .2, 1);
+}
+
+/* accent text inside title */
+.hero-title .accent {
+  background: linear-gradient(90deg, rgba(0, 191, 166, 0.12), rgba(0, 191, 166, 0.06));
+  color: #043F4A;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+/* subtitle paragraph */
+.hero-sub {
+  color: var(--muted);
+  font-size: 16px;
+  margin: 0 0 22px 0;
+  max-width: 60ch;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 520ms ease 120ms, transform 520ms cubic-bezier(.2, .9, .2, 1) 120ms;
+}
+
+/* CTA buttons */
+.hero-ctas {
+  display: flex;
+  gap: 14px;
+  margin-top: 14px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 520ms ease 220ms, transform 520ms cubic-bezier(.2, .9, .2, 1) 220ms;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
+}
+
+.btn.primary {
+  background: linear-gradient(90deg, var(--accent), #00d0b0);
+  color: white;
+  box-shadow: 0 8px 30px rgba(0, 191, 166, 0.12);
+}
+
+.btn.primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(0, 191, 166, 0.14);
+}
+
+.btn.ghost {
+  background: rgba(168, 213, 228, 1);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  color: #0f172a;
+}
+
+.btn.ghosts {
+  background: rgba(33, 72, 103, 1);
+  border: 1px solid #304657;
+  color: white;
+}
+
+.btn.ghost:hover {
+  transform: translateY(-3px);
+  background: rgba(168, 213, 228, 1);
+}
+
+.btn.ghosts:hover {
+  transform: translateY(-3px);
+  background: rgba(33, 72, 103, 1);
+}
+
+/* Badges under CTAs */
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+  list-style: none;
+  padding: 0;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 520ms ease 320ms, transform 520ms cubic-bezier(.2, .9, .2, 1) 320ms;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 191, 166, 0.25);
+  backdrop-filter: blur(8px);
+  color: #0f172a;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: default;
+}
+
+.badge:hover {
+  transform: translateY(-2px);
+  background: #ffffff;
+  border-color: var(--accent);
+  box-shadow: 0 8px 20px rgba(0, 191, 166, 0.15);
+  color: #012228;
+}
+
+.badge svg {
+  color: var(--accent);
+  transition: transform 0.3s ease;
+}
+
+.badge:hover svg {
+  transform: scale(1.1);
+}
+
+/* Right column: image/video */
+.hero-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* image/video wrap with subtle 3D card */
+.hero-image-wrap {
+  width: 420px;
+  max-width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  /* ensures video/image respects rounded corners */
+  box-shadow: var(--card-shadow);
+  transform: translateY(10px) rotate(-1.2deg) scale(0.98);
+  opacity: 0;
+  transition: transform 620ms cubic-bezier(.2, .9, .2, 1), opacity 620ms ease;
+}
+
+/* hero image */
+.hero-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transform-origin: center;
+  transition: transform 700ms cubic-bezier(.2, .9, .2, 1);
+}
+
+/* hero video (when used) */
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
+  transition: transform 700ms cubic-bezier(.2, .9, .2, 1);
+  will-change: transform;
+}
+
+/* floating mini-card on image */
+.floating-card {
+  position: absolute;
+  right: -10px;
+  bottom: -20px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), #ffffff);
+  border-radius: 12px;
+  padding: 12px 14px;
+  box-shadow: 0 12px 30px rgba(3, 18, 25, 0.09);
+  transform: translateY(12px) scale(0.98) rotate(-2deg);
+  opacity: 0;
+  transition: transform 520ms cubic-bezier(.2, .9, .2, 1), opacity 520ms ease;
+  min-width: 160px;
+}
+
+/* subtle shadow layer under image for depth */
+.image-shadow {
+  position: absolute;
+  left: 8%;
+  top: 6%;
+  width: 84%;
+  height: 86%;
+  background: radial-gradient(ellipse at center, rgba(2, 30, 28, 0.08) 0%, rgba(2, 30, 28, 0) 60%);
+  filter: blur(18px);
+  pointer-events: none;
+}
+
+/* -------------------------
+   In-view state (triggered by IntersectionObserver)
+   ------------------------- */
+.hero-section.in-view .eyebrow,
+.hero-section.in-view .hero-title,
+.hero-section.in-view .hero-sub,
+.hero-section.in-view .hero-ctas,
+.hero-section.in-view .hero-badges,
+.hero-section.in-view .hero-image-wrap,
+.hero-section.in-view .floating-card {
+  opacity: 1;
+  transform: translateY(0) scale(1) rotate(0);
+}
+
+/* Make hero title come slightly later for nice cascade */
+.hero-section.in-view .eyebrow {
+  transition-delay: 60ms;
+  transform: translateY(0);
+}
+
+.hero-section.in-view .hero-title {
+  transition-delay: 120ms;
+  transform: translateY(0);
+}
+
+.hero-section.in-view .hero-sub {
+  transition-delay: 200ms;
+  transform: translateY(0);
+}
+
+.hero-section.in-view .hero-ctas {
+  transition-delay: 300ms;
+  transform: translateY(0);
+}
+
+.hero-section.in-view .hero-badges {
+  transition-delay: 360ms;
+  transform: translateY(0);
+}
+
+.hero-section.in-view .hero-image-wrap {
+  transition-delay: 260ms;
+  opacity: 1;
+  transform: translateY(0) rotate(0) scale(1);
+}
+
+.hero-section.in-view .floating-card {
+  transition-delay: 380ms;
+  opacity: 1;
+  transform: translateY(0) scale(1) rotate(0);
+}
+
+/* hover micro interactions for image/video */
+.hero-image-wrap:hover .hero-image,
+.hero-image-wrap:hover .hero-video {
+  transform: scale(1.03) rotate(0.4deg);
+}
+
+/* -------------------------
+   Responsive
+   ------------------------- */
+@media (max-width: 980px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    padding-top: 20px;
+  }
+
+  .hero-right {
+    order: -1;
+  }
+
+  /* image/video first on small screens */
+  .hero-image-wrap {
+    width: 92%;
+    margin: 0 auto;
+    transform: translateY(0) rotate(0) scale(1);
+  }
+
+  .floating-card {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    transform: none;
+    margin: 10px auto 0;
+    max-width: 320px;
+  }
+
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .hero-sub {
+    font-size: 15px;
+    max-width: 46ch;
+  }
+}
+
+/* Reduced motion respects user preference */
+@media (prefers-reduced-motion: reduce) {
+  .hero-section * {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}

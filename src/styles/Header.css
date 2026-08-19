@@ -1,0 +1,439 @@
+/* =========================================================
+   src/style/header.css
+   Professional header styles (full file)
+   - Topbar + Main header + Centered nav
+   - Subtle animations, responsive, reduced-motion support
+   - Includes distinct styles for :hover and .active (NavLink)
+   ========================================================= */
+
+/* ------------------------
+   Variables / Colors
+   ------------------------ */
+:root {
+  --midnight: #012228;
+  /* main navbar */
+  --midnight-600: #022e37;
+  --accent: #00bfa6;
+  /* highlight */
+  --white: #ffffff;
+  --muted: #6b7280;
+  --max-width: 1280px;
+  --gutter: 20px;
+  --header-height: 72px;
+}
+
+/* ------------------------
+   Utility / Reset
+   ------------------------ */
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ========================
+   TOPBAR
+   ======================== */
+.topbar {
+  width: 100%;
+  background: var(--white);
+  color: var(--midnight);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  font-weight: 600;
+  font-size: 14px;
+  position: relative;
+  z-index: 1200;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.topbar .topbar-left,
+.topbar .topbar-right {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+/* left group aligned left, right group aligned right */
+.topbar .topbar-left {
+  margin-right: auto;
+  padding-left: calc(var(--gutter) + 4px);
+}
+
+.topbar .topbar-right {
+  margin-left: auto;
+  padding-right: calc(var(--gutter) + 4px);
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 13px;
+}
+
+/* separator style */
+.topbar .sep {
+  opacity: 0.45;
+  margin: 0 6px;
+}
+
+/* ========================
+   MAIN HEADER (MIDNIGHT)
+   ======================== */
+.main-header {
+  width: 100%;
+  background: linear-gradient(180deg, var(--midnight), var(--midnight-600));
+  box-shadow: 0 6px 22px rgba(1, 34, 40, 0.12);
+  position: sticky;
+  top: 0;
+  /* will stick under topbar when both present */
+  z-index: 1100;
+}
+
+/* container keeps content centered */
+.header-container {
+  width: calc(100% - (var(--gutter) * 2));
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  height: var(--header-height);
+  padding: 0;
+}
+
+/* BRAND (left) */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.brand-logo1 {
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
+  /* border-radius: 15px; */
+  padding: 6px;
+  /* background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 6px 18px rgba(1, 34, 40, 0.12); */
+  transition: transform 280ms cubic-bezier(.2, .9, .2, 1);
+}
+
+.brand:hover .brand-logo {
+  transform: translateY(-3px) scale(1.03);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  color: var(--white);
+}
+
+/* title + subtitle styling */
+.brand-title1 {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  color: var(--white);
+}
+
+.brand-subtitle1 {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  color: var(--white);
+}
+
+/* ========================
+   NAV — centered
+   ======================== */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  justify-content: center;
+  flex: 1;
+  /* takes center space */
+  pointer-events: auto;
+}
+
+/* link base */
+.nav a {
+  color: var(--white);
+  font-weight: 700;
+  font-size: 15px;
+  padding: 8px 6px;
+  border-radius: 8px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 220ms ease, transform 220ms cubic-bezier(.2, .9, .2, 1), box-shadow 220ms ease;
+  will-change: transform;
+  /* start visible — if you add delay animations later, use --delay inline style */
+}
+
+/* -------------------------
+   HOVER (mouse only) — subtle lift and highlight
+   ------------------------- */
+.nav a:hover {
+  color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(1, 34, 40, 0.12);
+}
+
+/* underline that grows from center on hover */
+.nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: 70%;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.08), var(--accent), rgba(255, 255, 255, 0.08));
+  transition: transform 320ms cubic-bezier(.2, .9, .2, 1), opacity 320ms ease;
+  opacity: 0;
+}
+
+/* grow underline on hover */
+.nav a:hover::after {
+  transform: translateX(-50%) scaleX(1);
+  opacity: 1;
+}
+
+/* -------------------------
+   ACTIVE (selected page) — distinct from hover
+   - No lift, just accent color + underline
+   ------------------------- */
+.nav a.active,
+.nav a[aria-current="page"] {
+  color: var(--accent);
+  font-weight: 800;
+  transform: none;
+  /* ensure no lift for active */
+  box-shadow: none;
+}
+
+/* active underline visible but more subtle (no movement) */
+.nav a.active::after,
+.nav a[aria-current="page"]::after {
+  transform: translateX(-50%) scaleX(1);
+  opacity: 1;
+}
+
+/* ========================
+   RIGHT SIDE (actions placeholder)
+   ======================== */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 36px;
+  justify-content: flex-end;
+}
+
+/* small icon button */
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: var(--white);
+  cursor: pointer;
+  transition: transform 200ms ease, color 200ms ease, background 200ms ease;
+}
+
+.icon-btn:hover {
+  color: var(--accent);
+  transform: translateY(-3px);
+}
+
+/* ========================
+   MOBILE / RESPONSIVE
+   ======================== */
+/* ========================
+   MOBILE TOGGLE (Hamburger)
+   ======================== */
+.mobile-menu-btn {
+  display: none;
+  /* Hidden on desktop */
+  background: transparent;
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+  padding: 8px;
+  z-index: 2000;
+  /* Above everything */
+  transition: color 0.2s ease;
+}
+
+.mobile-menu-btn:hover {
+  color: var(--accent);
+}
+
+.mobile-backdrop {
+  display: none;
+}
+
+/* ========================
+   MOBILE / RESPONSIVE
+   ======================== */
+@media (max-width: 980px) {
+
+  /* Show Toggle Button */
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  /* topbar stacks and centers */
+  .topbar {
+    display: none !important;
+  }
+
+  /* header container more compact */
+  .header-container {
+    padding: 0 16px;
+    height: 64px;
+    justify-content: space-between;
+  }
+
+  /* Keep brand text visible but adjust size if needed, 
+     or maintain as is. Existing styles are fine. */
+  .brand-text {
+    display: flex;
+    /* Keep visible */
+  }
+
+  .brand-logo1 {
+    width: 80px;
+    height: 80px;
+  }
+
+  .brand-title1 {
+    font-size: 18px;
+  }
+
+  .brand-subtitle1 {
+    font-size: 12px;
+  }
+
+  /* NAV - Mobile Drawer Style */
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    /* Hidden by default */
+    width: 75%;
+    max-width: 300px;
+    height: 100vh;
+    background: var(--midnight);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 80px 24px 24px;
+    gap: 20px;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1500;
+  }
+
+  .nav.mobile-open {
+    right: 0;
+    /* Slide in */
+  }
+
+  /* Nav Links in Drawer */
+  .nav a {
+    font-size: 18px;
+    width: 100%;
+    justify-content: flex-start;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 0;
+  }
+
+  .nav a:hover,
+  .nav a.active {
+    background: transparent;
+    transform: none;
+    padding-left: 10px;
+    /* Slight indent on active */
+  }
+
+  /* Remove hover underlines on mobile for cleaner look */
+  .nav a::after {
+    display: none;
+  }
+
+  /* Backdrop Overlay */
+  .mobile-backdrop {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    z-index: 1400;
+    /* Below nav, above header */
+    animation: fadeIn 0.3s ease;
+  }
+
+  .header-actions {
+    display: none;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* improved small-screen look (very small) */
+@media (max-width: 420px) {
+  .brand-logo1 {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* ========================
+   Reduced Motion
+   ======================== */
+@media (prefers-reduced-motion: reduce) {
+
+  .brand-logo,
+  .nav a,
+  .topbar {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}
